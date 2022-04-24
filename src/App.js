@@ -86,6 +86,7 @@ const useSetInitialTableData = ({ loading, data, markets, tickets, setFields }) 
       // Set the data structure to a key-value pair for easier access and manipulation
       const initilaFields = markets.reduce((acc, market) => {
         tickets.forEach(ticket => {
+          // Use a composite key of market_id and ticket_id for each data cell
           const key = `${market.market_id}-${ticket.ticket_id}`;
           acc[key] = initialData[key] || 0;
         });
